@@ -1,0 +1,137 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  max-width: 600px;
+  width: 90%;
+  margin: 20px;
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 2.5em;
+}
+
+p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 1.1em;
+}
+
+.prediction-form {
+  display: grid;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+  font-size: 1em;
+}
+
+input {
+  padding: 12px;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+input.error {
+  border-color: #d63031;
+  box-shadow: 0 0 0 3px rgba(214, 48, 49, 0.1);
+}
+
+.predict-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1.2em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 10px;
+}
+
+.predict-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.result {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.risk-level {
+  font-size: 1.5em;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.high-risk {
+  background-color: #ffe6e6;
+  color: #d63031;
+  border: 2px solid #fab1a0;
+}
+
+.low-risk {
+  background-color: #e6f7ff;
+  color: #0984e3;
+  border: 2px solid #74b9ff;
+}
+
+.result p {
+  margin: 0;
+  font-size: 1.1em;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  input,
+  .predict-btn {
+    font-size: 1em;
+  }
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diabetes Risk Predictor</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Diabetes Risk Assessment</h1>
+      <p>Enter your health metrics to assess diabetes risk:</p>
+
+      <form action="/predict" method="post" class="prediction-form">
+        <div class="form-group">
+          <label for="pregnancies">Number of Pregnancies:</label>
+          <input type="number" id="pregnancies" name="pregnancies" required />
+        </div>
+
+        <div class="form-group">
+          <label for="glucose">Glucose Level:</label>
+          <input
+            type="number"
+            step="0.1"
+            id="glucose"
+            name="glucose"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="blood_pressure">Blood Pressure:</label>
+          <input
+            type="number"
+            step="0.1"
+            id="blood_pressure"
+            name="blood_pressure"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="skin_thickness">Skin Thickness:</label>
+          <input
+            type="number"
+            step="0.1"
+            id="skin_thickness"
+            name="skin_thickness"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="insulin">Insulin Level:</label>
+          <input
+            type="number"
+            step="0.1"
+            id="insulin"
+            name="insulin"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="bmi">BMI:</label>
+          <input type="number" step="0.1" id="bmi" name="bmi" required />
+        </div>
+
+        <div class="form-group">
+          <label for="diabetes_pedigree">Diabetes Pedigree Function:</label>
+          <input
+            type="number"
+            step="0.001"
+            id="diabetes_pedigree"
+            name="diabetes_pedigree"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <input type="number" id="age" name="age" required />
+        </div>
+
+        <button type="submit" class="predict-btn">Predict Risk</button>
+      </form>
+
+      {% if prediction %}
+      <div class="result">
+        <h2>Prediction Result</h2>
+        <div
+          class="risk-level {{ 'high-risk' if prediction == 'High Risk' else 'low-risk' }}"
+        >
+          {{ prediction }}
+        </div>
+        <p>
+          Based on the provided health metrics, your diabetes risk is assessed
+          as <strong>{{ prediction }}</strong>.
+        </p>
+      </div>
+      {% endif %}
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
